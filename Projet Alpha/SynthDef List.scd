@@ -19,3 +19,16 @@ SynthDef.new(\sine, {
 }).add;
 
 
+SynthDef.new(\test, {
+	arg freq=440, rq=1;
+	var sig;
+	sig = PinkNoise.ar(1!2);
+	sig = BPF.ar(sig,
+		freq.lag(0.5),
+		rq.lag(0.5),
+		1/rq.sqrt.lag(0.5),
+	);
+	Out.ar(0, sig);
+}).add;
+
+

@@ -34,3 +34,6 @@ Pdef(
 		\pan, Pwhite(-0.8, 0.8, inf),
 	);
 ).stop;
+
+x = Synth.new(\test, [\freq, ~slider.value.linexp(0,1,100,4000)]);
+x.free;
